@@ -1,7 +1,7 @@
 import InputView from './view/InputView.js';
 import OutputView from './view/OutputView.js';
 import LottoGame from './domain/LottoGame.js';
-import { validateWinnerNumbers } from './util/Validation.js';
+import { validateBonusNumber, validateWinnerNumbers } from './util/Validation.js';
 
 class App {
   #lottoGame;
@@ -48,6 +48,7 @@ class App {
     while (true) {
       try {
         const bonusNumber = await InputView.readBonusNumber();
+        validateBonusNumber(bonusNumber);
         return Number(bonusNumber);
       } catch (error) {
         OutputView.print(error.message);
