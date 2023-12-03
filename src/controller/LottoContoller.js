@@ -66,7 +66,7 @@ class LottoContoller {
   }
 
   #validateBonusNumber(lottoBonusInput) {
-    if (this.#lotto.includes(lottoBonusInput)) {
+    if (this.#lotto.includes(Number(lottoBonusInput))) {
       throw new Error(LOTTO_ERROR_MESSAGE.INVALID_BONUS_NUMBER);
     }
   }
