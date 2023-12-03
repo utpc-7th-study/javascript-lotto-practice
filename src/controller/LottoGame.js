@@ -11,6 +11,7 @@ class LottoGame {
   buyLottos() {
     const amount = 8000;
     const numbersArray = RandomNumbersArray.create(amount / 1000);
+    this.#lottos.set(numbersArray);
   }
 }
 
