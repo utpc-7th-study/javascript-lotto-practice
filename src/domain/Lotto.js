@@ -7,7 +7,20 @@ class Lotto {
 
   constructor(numbers) {
     this.#validate(numbers);
-    this.#numbers = numbers;
+    this.#numbers = numbers.map(Number);
+  }
+
+  includes(number) {
+    return this.#numbers.includes(number);
+  }
+
+  matchCount(numbers) {
+    const matchCount = numbers.reduce(
+      (total, currentNumber) => total + Number(this.#numbers.includes(currentNumber)),
+      0,
+    );
+
+    return matchCount;
   }
 
   #validate(numbers) {

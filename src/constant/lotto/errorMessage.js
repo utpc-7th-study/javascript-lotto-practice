@@ -22,7 +22,9 @@ const LOTTO_ERROR_MESSAGE = {
 
   INVALID_NUMBER_RANGE: `${ERROR_PREFIX} 로또 번호는 ${MIN.LOTTO_NUMBER}부터 ${MAX.LOTTO_NUMBER} 사이의 숫자여야 합니다.`,
 
-  HAVE_DUPLICATE: `${ERROR_PREFIX} 중복된 로또 번호가 있습니다.`
+  HAVE_DUPLICATE: `${ERROR_PREFIX} 중복된 로또 번호가 있습니다.`,
+
+  INVALID_BONUS_NUMBER: `${ERROR_PREFIX} 로또 번호에 이미 있는 번호입니다.`,
 };
 
 export default LOTTO_ERROR_MESSAGE;

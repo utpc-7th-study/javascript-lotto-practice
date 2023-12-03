@@ -4,12 +4,13 @@ import isValidLottoNumber from '../utils/isValidLottoNumber.js';
 class LottoBonus {
   #bonusNumber;
 
-  constructor(number) {
-    this.#validate(number);
+  constructor(bonusNumber) {
+    this.#validate(bonusNumber);
+    this.#bonusNumber = bonusNumber;
   }
 
-  match(number) {
-    return number === this.#bonusNumber;
+  match(numbers) {
+    return numbers.includes(this.#bonusNumber);
   }
 
   #validate(number) {
