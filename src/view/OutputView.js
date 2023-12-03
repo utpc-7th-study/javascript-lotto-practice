@@ -17,8 +17,12 @@ const OutputView = {
     this.print(message.join('\n'));
   },
 
-  correctTemp(matchNumber, prize, matchCount) {
-    return `${matchNumber}개 일치 (${addCommaToNumber(prize)}원) - ${matchCount}개`;
+  correctTemp(matchNumber, prize, matchCount, bonus) {
+    const message = [`${matchNumber}개 일치`];
+    if (bonus) message.push(', 보너스 볼 일치 ');
+    message.push(`(${addCommaToNumber(prize)}원) - ${matchCount}개`);
+
+    return message.join('');
   },
 
   lottoResult(lottoStatistics) {
@@ -29,7 +33,7 @@ const OutputView = {
       this.correctTemp(LOTTO_WINNING_INFO.fifty.correct, LOTTO_WINNING_INFO.fifty.prize, fifth),
       this.correctTemp(LOTTO_WINNING_INFO.fourth.correct, LOTTO_WINNING_INFO.fourth.prize, fourth),
       this.correctTemp(LOTTO_WINNING_INFO.third.correct, LOTTO_WINNING_INFO.third.prize, third),
-      this.correctTemp(LOTTO_WINNING_INFO.second.correct, LOTTO_WINNING_INFO.second.prize, second),
+      this.correctTemp(LOTTO_WINNING_INFO.second.correct,LOTTO_WINNING_INFO.second.prize,second, true),
       this.correctTemp(LOTTO_WINNING_INFO.first.correct, LOTTO_WINNING_INFO.first.prize, first),
       `총 수익률은 ${roi}%입니다.`,
     ];
