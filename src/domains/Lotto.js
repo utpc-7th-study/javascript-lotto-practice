@@ -12,6 +12,10 @@ class Lotto {
     }
   }
 
+  countSameNumber(lotto) {
+    return lotto.countSame(this.#numbers);
+  }
+
   countSame(numbers) {
     const sameNumbers = numbers.filter((number) =>
       this.#numbers.includes(number)

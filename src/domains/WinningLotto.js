@@ -1,4 +1,5 @@
 import Lotto from './Lotto.js';
+import Bonus from './Bonus.js';
 
 class WinningLotto {
   #lotto;
@@ -10,7 +11,7 @@ class WinningLotto {
   }
 
   countSameNumber(lotto) {
-    lotto.getSameNumber(this.#lotto);
+    return lotto.countSameNumber(this.#lotto);
   }
 }
 
