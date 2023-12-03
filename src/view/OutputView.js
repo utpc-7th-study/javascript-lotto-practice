@@ -10,12 +10,7 @@ const OutputView = {
   },
 
   printLottos(lottos) {
-    let result = '';
-
-    lottos.forEach((lotto) => {
-      result += `[ ${lotto.join(', ')} ]\n`;
-    });
-
+    const result = lottos.reduce((acc, lotto) => acc + `[ ${lotto.join(', ')} ]\n`, '');
     Console.print(result);
   },
 };
