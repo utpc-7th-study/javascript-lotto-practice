@@ -4,7 +4,8 @@ class App {
   async play() {
     const lottoContoller = new LottoContoller();
 
-    lottoContoller.askBuyAmount();
+    await lottoContoller.askBuyAmount();
+    await lottoContoller.askLottoNumbers();
   }
 }
 
