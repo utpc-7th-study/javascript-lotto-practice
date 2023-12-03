@@ -2,6 +2,7 @@ export const validateWinnerNumbers = (winnerNumbers) => {
   const splitedNumbers = winnerNumbers.split(',');
   validateMinimumLengthLimit(splitedNumbers);
   validateNumberType(splitedNumbers);
+  validateWinnerNumberRange(splitedNumbers);
 };
 
 const validateMinimumLengthLimit = (splitedNumbers) => {
@@ -15,5 +16,13 @@ const validateNumberType = (splitedNumbers) => {
 
   if (!isValid) {
     throw new Error('[ERROR] 당첨 번호는 쉼표(,)를 기준으로 숫자 형태만 입력해주세요.');
+  }
+};
+
+const validateWinnerNumberRange = (splitedNumbers) => {
+  const isValid = splitedNumbers.every((number) => number >= 1 && number <= 45);
+
+  if (!isValid) {
+    throw new Error('[ERROR] 당첨 번호는 쉼표(,)를 기준으로 1 ~ 45사이의 숫자만 입력해주세요.');
   }
 };
