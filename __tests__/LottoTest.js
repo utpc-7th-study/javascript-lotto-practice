@@ -25,4 +25,16 @@ describe('로또 클래스 테스트', () => {
     // then
     expect(result).toBe(4);
   });
+
+  test('로또가 가지는 번호인지 확인한다.', () => {
+    // given
+    const number = 40;
+    const lotto = new Lotto([7, 12, 33, 34, 40, 42]);
+
+    // when
+    const result = lotto.includes(number);
+
+    // then
+    expect(result).toBe(true);
+  });
 });
