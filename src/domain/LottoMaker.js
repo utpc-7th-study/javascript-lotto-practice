@@ -18,7 +18,6 @@ class LottoMaker {
       return new Lotto(this.#generateRandomNumbers.generate(1, 45, 6)).getLottos();
     });
 
-    console.log(lottos);
     return lottos;
   }
 

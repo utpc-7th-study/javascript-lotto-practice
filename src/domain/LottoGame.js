@@ -11,6 +11,9 @@ class LottoGame {
 
   purchaseLotto(lottoPrice) {
     this.#user.purchaseLotto(lottoPrice);
+    const lottos = this.#user.checkLottoNumbers();
+
+    return lottos;
   }
 }
 

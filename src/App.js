@@ -17,7 +17,9 @@ class App {
     while (true) {
       try {
         const lottoPrice = await InputView.readLottoPrice();
-        this.#lottoGame.purchaseLotto(lottoPrice);
+        const lottos = this.#lottoGame.purchaseLotto(lottoPrice);
+
+        OutputView.printLottos(lottos);
         break;
       } catch (error) {
         OutputView.print(error.message);
