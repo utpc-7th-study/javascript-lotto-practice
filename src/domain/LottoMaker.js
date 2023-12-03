@@ -3,6 +3,13 @@ const MAXIMUM = 1000000;
 class LottoMaker {
   generateLotto(lottoPrice) {
     this.#validateLottoPrice(lottoPrice);
+
+    const lottoQuantity = this.#calculateLottoQuantity(lottoPrice);
+    console.log(lottoQuantity);
+  }
+
+  #calculateLottoQuantity(lottoPrice) {
+    return Number(lottoPrice) / 1000;
   }
 
   #validateLottoPrice(lottoPrice) {
