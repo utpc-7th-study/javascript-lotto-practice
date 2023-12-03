@@ -1,19 +1,21 @@
 import LOTTO_ERROR_MESSAGE from '../constant/lotto/errorMessage.js';
 import LOTTO_PRICE from '../constant/lotto/price.js';
 import { MIN } from '../constant/lotto/range.js';
+import LottoMachine from '../domain/LottoMachine.js';
 import isNumber from '../utils/isNumber.js';
 import InputView from '../view/InputView.js';
 import OutputView from '../view/OutputView.js';
 
 class LottoContoller {
-  #buyAmount = 0;
+  #lottoMachine;
 
   async askBuyAmount() {
-    while (this.#buyAmount === 0) {
+    while (!this.#lottoMachine) {
       try {
         const buyAmountInput = await InputView.enterBuyAmount();
         this.#validateBuyAmount(buyAmountInput);
-        this.#buyAmount = Number(buyAmountInput);
+        const buyAmount = Number(buyAmountInput);
+        this.#lottoMachine = new LottoMachine(Number(buyAmount));
       } catch (error) {
         OutputView.print(error.message);
       }
