@@ -14,7 +14,7 @@ class App {
     await this.#purchaseLottoProcess();
 
     const winnerNumbers = await this.#winnerNumbersProcess();
-    const bonusNumber = await this.#bonusNumberProcess();
+    const bonusNumber = await this.#bonusNumberProcess(winnerNumbers);
 
     const lottoResult = this.#lottoGame.compareNumber(winnerNumbers, bonusNumber);
     OutputView.printResult(lottoResult);
@@ -50,11 +50,11 @@ class App {
     }
   }
 
-  async #bonusNumberProcess() {
+  async #bonusNumberProcess(winnerNumbers) {
     while (true) {
       try {
         const bonusNumber = await InputView.readBonusNumber();
-        validateBonusNumber(bonusNumber);
+        validateBonusNumber(bonusNumber, winnerNumbers);
         return Number(bonusNumber);
       } catch (error) {
         OutputView.print(error.message);

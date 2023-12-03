@@ -9,9 +9,10 @@ export const validateWinnerNumbers = (winnerNumbers) => {
   });
 };
 
-export const validateBonusNumber = (bonusNumber) => {
+export const validateBonusNumber = (bonusNumber, winnerNumbers) => {
   validateNumberType(bonusNumber);
   validateNumberRange(bonusNumber);
+  validateDuplicateWithWinnerNumbers(winnerNumbers, bonusNumber);
 };
 
 const validateMinimumLengthLimit = (splitedNumbers) => {
@@ -33,5 +34,11 @@ const validateNumberRange = (number) => {
 
   if (!isValid) {
     throw new Error('[ERROR] 1 ~ 45사이의 숫자만 입력해주세요.');
+  }
+};
+
+const validateDuplicateWithWinnerNumbers = (winnerNumbers, bonusNumber) => {
+  if (new Set([...winnerNumbers, Number(bonusNumber)]).size === winnerNumbers.length) {
+    throw new Error('[ERROR] 보너스번호는 당첨번호와 중복될 수 없습니다.');
   }
 };
