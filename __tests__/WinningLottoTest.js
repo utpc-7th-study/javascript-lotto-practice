@@ -8,8 +8,22 @@ describe('WinningLotto 클래스 테스트', () => {
     const lotto = new Lotto([4, 5, 11, 22, 33, 44]);
 
     // when
-    const result = winningLotto.countSameNumber(lotto);
+    const result = winningLotto.checkSameNumber(lotto);
 
     expect(result).toBe(2);
+  });
+
+  test('로또가 보너스 번호 가지는지 확인한다.', () => {
+    // given
+    const numbers = [1, 2, 3, 4, 5, 6];
+    const bonusNumber = 7;
+    const winningLotto = new WinningLotto(numbers, bonusNumber);
+    const lotto = new Lotto([7, 8, 9, 10, 11, 12]);
+
+    // when
+    const result = winningLotto.checkBonus(lotto);
+
+    // then
+    expect(result).toBe(true);
   });
 });
