@@ -1,11 +1,8 @@
 import { Console } from '@woowacourse/mission-utils';
-import LOTTO_WINNING_INFO from '../constant/lotto/winningInfo';
+import LOTTO_WINNING_INFO from '../constant/lotto/winningInfo.js';
+import addCommaToNumber from '../utils/addCommaToNumber.js';
 
 const OutputView = {
-  numberFormat: new Intl.NumberFormat('ko-KR'),
-
-  addCommaToNumber: (number) => this.numberFormat.format(number),
-
   boughtLottos(lottos) {
     // lottos : [[],[]]
     const message = [
@@ -17,7 +14,7 @@ const OutputView = {
   },
 
   correctTemp(matchNumber, prize, matchCount) {
-    return `${matchNumber}개 일치 (${this.addCommaToNumber(prize)}원) - ${matchCount}개`;
+    return `${matchNumber}개 일치 (${addCommaToNumber(prize)}원) - ${matchCount}개`;
   },
 
   lottoResult(lottoStatistics) {
@@ -37,7 +34,7 @@ const OutputView = {
   },
 
   print(message) {
-    Console.pirnt(message);
+    Console.print(message);
   },
 };
 
