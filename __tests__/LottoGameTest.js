@@ -32,4 +32,15 @@ describe('구입금액 테스트', () => {
       }).toThrow();
     }
   );
+
+  const MIN = 1000;
+
+  test.each([[MIN - 1], [MIN - 1000], [-MIN]])(
+    '잘못된 구입금액 테스트 : 최소 금액 테스트',
+    (input) => {
+      expect(() => {
+        lottoGame.purchaseLotto(input);
+      }).toThrow();
+    }
+  );
 });
