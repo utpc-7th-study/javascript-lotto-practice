@@ -1,3 +1,5 @@
+const MAXIMUM = 1000000;
+
 class LottoGame {
   purchaseLotto(lottoPrice) {
     this.#validateLottoPrice(lottoPrice);
@@ -7,6 +9,7 @@ class LottoGame {
     this.#validateNumberType(lottoPrice);
     this.#validateCurrencyUnit(lottoPrice);
     this.#validateMinimumPrice(lottoPrice);
+    this.#validateMaximumPrice(lottoPrice);
   }
 
   #validateNumberType(input) {
@@ -24,6 +27,12 @@ class LottoGame {
   #validateMinimumPrice(input) {
     if (Number(input) < 1000) {
       throw new Error('[ERROR] 로또 금액은 1000원 이상부터 구입 가능합니다.');
+    }
+  }
+
+  #validateMaximumPrice(input) {
+    if (Number(input) > MAXIMUM) {
+      throw new Error(`[ERROR] 로또 금액은 ${MAXIMUM} 까지만 구입 구입 가능합니다.`);
     }
   }
 }
