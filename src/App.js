@@ -11,6 +11,8 @@ class App {
 
   async play() {
     await this.#purchaseLottoProcess();
+    const winnerNumbers = await this.#winnerNumbersProcess();
+    console.log(winnerNumbers);
   }
 
   async #purchaseLottoProcess() {
@@ -22,6 +24,18 @@ class App {
         OutputView.printLottoQuantity(lottos.length);
         OutputView.printLottos(lottos);
         break;
+      } catch (error) {
+        OutputView.print(error.message);
+      }
+    }
+  }
+
+  async #winnerNumbersProcess() {
+    while (true) {
+      try {
+        const winnerNumbers = await InputView.readWinnerNumbers();
+
+        return winnerNumbers;
       } catch (error) {
         OutputView.print(error.message);
       }
