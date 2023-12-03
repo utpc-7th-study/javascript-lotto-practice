@@ -13,7 +13,8 @@ class App {
   async play() {
     await this.#purchaseLottoProcess();
     const winnerNumbers = await this.#winnerNumbersProcess();
-    console.log(winnerNumbers);
+    const bonusNumber = await this.#bonusNumberProcess();
+    console.log(winnerNumbers, bonusNumber);
   }
 
   async #purchaseLottoProcess() {
@@ -37,6 +38,17 @@ class App {
         const winnerNumbers = await InputView.readWinnerNumbers();
         validateWinnerNumbers(winnerNumbers);
         return winnerNumbers.split(',').map((number) => Number(number));
+      } catch (error) {
+        OutputView.print(error.message);
+      }
+    }
+  }
+
+  async #bonusNumberProcess() {
+    while (true) {
+      try {
+        const bonusNumber = await InputView.readBonusNumber();
+        return Number(bonusNumber);
       } catch (error) {
         OutputView.print(error.message);
       }
