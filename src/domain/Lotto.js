@@ -9,6 +9,7 @@ class Lotto {
   #validate(numbers) {
     this.#validateLimitLottoLength(numbers);
     this.#validateLottoRange(numbers);
+    this.#validateDuplicateLottoNumber(numbers);
   }
 
   #validateLimitLottoLength(numbers) {
@@ -22,6 +23,12 @@ class Lotto {
 
     if (!isValidLottoRange) {
       throw new Error('[ERROR] 로또 번호는 1부터 45까지의 범위만 가능합니다.');
+    }
+  }
+
+  #validateDuplicateLottoNumber(numbers) {
+    if (new Set(numbers).size !== numbers.length) {
+      throw new Error('[ERROR] 로또 번호는 중복될 수 없습니다.');
     }
   }
 
