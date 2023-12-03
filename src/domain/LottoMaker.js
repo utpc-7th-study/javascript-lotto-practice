@@ -1,11 +1,25 @@
+import Lotto from './Lotto.js';
+
 const MAXIMUM = 1000000;
 
 class LottoMaker {
+  #generateRandomNumbers;
+
+  constructor(generateRandomNumbers) {
+    this.#generateRandomNumbers = generateRandomNumbers;
+  }
+
   generateLotto(lottoPrice) {
     this.#validateLottoPrice(lottoPrice);
 
     const lottoQuantity = this.#calculateLottoQuantity(lottoPrice);
-    console.log(lottoQuantity);
+
+    const lottos = Array.from({ length: lottoQuantity }, () => {
+      return new Lotto(this.#generateRandomNumbers.generate(1, 45, 6)).getLottos();
+    });
+
+    console.log(lottos);
+    return lottos;
   }
 
   #calculateLottoQuantity(lottoPrice) {
