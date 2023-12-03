@@ -6,6 +6,7 @@ class LottoGame {
   #validateLottoPrice(lottoPrice) {
     this.#validateNumberType(lottoPrice);
     this.#validateCurrencyUnit(lottoPrice);
+    this.#validateMinimumPrice(lottoPrice);
   }
 
   #validateNumberType(input) {
@@ -17,6 +18,12 @@ class LottoGame {
   #validateCurrencyUnit(input) {
     if (Number(input) % 1000 !== 0) {
       throw new Error('[ERROR] 로또 금액은 1000원 단위로만 구입 가능합니다.');
+    }
+  }
+
+  #validateMinimumPrice(input) {
+    if (Number(input) < 1000) {
+      throw new Error('[ERROR] 로또 금액은 1000원 이상부터 구입 가능합니다.');
     }
   }
 }
