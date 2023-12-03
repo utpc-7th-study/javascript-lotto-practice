@@ -5,6 +5,10 @@ const OutputView = {
     Console.print(message);
   },
 
+  printLottoQuantity(quantity) {
+    Console.print(`\n${quantity}개를 구매했습니다.`);
+  },
+
   printLottos(lottos) {
     let result = '';
 

@@ -19,6 +19,7 @@ class App {
         const lottoPrice = await InputView.readLottoPrice();
         const lottos = this.#lottoGame.purchaseLotto(lottoPrice);
 
+        OutputView.printLottoQuantity(lottos.length);
         OutputView.printLottos(lottos);
         break;
       } catch (error) {
