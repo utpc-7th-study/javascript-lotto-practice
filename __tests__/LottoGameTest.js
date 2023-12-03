@@ -2,14 +2,14 @@ import LottoGame from '../src/domain/LottoGame.js';
 
 describe('구입금액 테스트', () => {
   let lottoGame;
+  const MIN = 1000;
+  const MAX = 1000000;
 
   beforeEach(() => {
     lottoGame = new LottoGame();
   });
 
-  test('올바른 구입금액 테스트', () => {
-    const input = '3000';
-
+  test.each([['3000'], [MIN], [MAX]])('올바른 구입금액 테스트', (input) => {
     expect(() => {
       lottoGame.purchaseLotto(input);
     }).not.toThrow();
@@ -33,8 +33,6 @@ describe('구입금액 테스트', () => {
     }
   );
 
-  const MIN = 1000;
-
   test.each([[MIN - 1], [MIN - 1000], [-MIN]])(
     '잘못된 구입금액 테스트 : 최소 금액 테스트',
     (input) => {
@@ -43,4 +41,10 @@ describe('구입금액 테스트', () => {
       }).toThrow();
     }
   );
+
+  test.each([[MAX + 1], [[MAX + 1000]]])('잘못된 구입금액 테스트 : 최대 금액 테스트', (input) => {
+    expect(() => {
+      lottoGame.purchaseLotto(input);
+    }).toThrow();
+  });
 });
