@@ -12,6 +12,12 @@ class LottoArray {
       this.#lottoArray.push(new Lotto(numbers));
     });
   }
+
+  compare(winningLotto) {
+    this.#lottoArray.forEach((lotto) => {
+      winningLotto.countSameNumber(lotto);
+    });
+  }
 }
 
 export default LottoArray;

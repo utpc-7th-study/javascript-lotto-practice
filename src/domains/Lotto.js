@@ -8,11 +8,17 @@ class Lotto {
 
   #validate(numbers) {
     if (numbers.length !== 6) {
-      throw new Error("[ERROR] 로또 번호는 6개여야 합니다.");
+      throw new Error('[ERROR] 로또 번호는 6개여야 합니다.');
     }
   }
 
-  // TODO: 추가 기능 구현
+  countSame(numbers) {
+    const sameNumbers = numbers.filter((number) =>
+      this.#numbers.includes(number)
+    );
+
+    return sameNumbers.length;
+  }
 }
 
 export default Lotto;
