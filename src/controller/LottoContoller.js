@@ -20,6 +20,7 @@ class LottoContoller {
         this.#validateIsNumber(buyAmountInput);
         const buyAmount = Number(buyAmountInput);
         this.#lottoMachine = new LottoMachine(Number(buyAmount));
+        OutputView.boughtLottos(this.#lottoMachine.boughtLottos());
       } catch (error) {
         OutputView.print(error.message);
       }

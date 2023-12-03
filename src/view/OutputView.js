@@ -7,7 +7,11 @@ const OutputView = {
     // lottos : [[],[]]
     const message = [
       `${lottos.length}개를 구매했습니다.`,
-      ...lottos.map((lottoNumbers) => [`${lottoNumbers.join(', ')}`]),
+      ...lottos.map((lottoNumbers) => [
+        `[${lottoNumbers
+          .sort((prevNumber, currentNumber) => prevNumber - currentNumber)
+          .join(', ')}]`,
+      ]),
     ];
 
     this.print(message.join('\n'));
