@@ -1,5 +1,66 @@
+import InputView from './view/InputView.js';
+import OutputView from './view/OutputView.js';
+import LottoGame from './domain/LottoGame.js';
+import { validateBonusNumber, validateWinnerNumbers } from './util/Validation.js';
+
 class App {
-  async play() {}
+  #lottoGame;
+
+  constructor() {
+    this.#lottoGame = new LottoGame();
+  }
+
+  async play() {
+    await this.#purchaseLottoProcess();
+
+    const winnerNumbers = await this.#winnerNumbersProcess();
+    const bonusNumber = await this.#bonusNumberProcess(winnerNumbers);
+
+    const lottoResult = this.#lottoGame.compareNumber(winnerNumbers, bonusNumber);
+    OutputView.printResult(lottoResult);
+
+    const profit = this.#lottoGame.calculateProfit();
+    OutputView.printPrift(profit);
+  }
+
+  async #purchaseLottoProcess() {
+    while (true) {
+      try {
+        const lottoPrice = await InputView.readLottoPrice();
+        const lottos = this.#lottoGame.purchaseLotto(lottoPrice);
+
+        OutputView.printLottoQuantity(lottos.length);
+        OutputView.printLottos(lottos);
+        break;
+      } catch (error) {
+        OutputView.print(error.message);
+      }
+    }
+  }
+
+  async #winnerNumbersProcess() {
+    while (true) {
+      try {
+        const winnerNumbers = await InputView.readWinnerNumbers();
+        validateWinnerNumbers(winnerNumbers);
+        return winnerNumbers.split(',').map((number) => Number(number));
+      } catch (error) {
+        OutputView.print(error.message);
+      }
+    }
+  }
+
+  async #bonusNumberProcess(winnerNumbers) {
+    while (true) {
+      try {
+        const bonusNumber = await InputView.readBonusNumber();
+        validateBonusNumber(bonusNumber, winnerNumbers);
+        return Number(bonusNumber);
+      } catch (error) {
+        OutputView.print(error.message);
+      }
+    }
+  }
 }
 
 export default App;
