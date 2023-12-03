@@ -10,8 +10,12 @@ class WinningLotto {
     this.#bonus = new Bonus(bonusNumber);
   }
 
-  countSameNumber(lotto) {
+  checkSameNumber(lotto) {
     return lotto.countSameNumber(this.#lotto);
+  }
+
+  checkBonus(lotto) {
+    return lotto.includes(this.#bonus);
   }
 }
 

@@ -7,6 +7,10 @@ class Bonus {
   }
 
   #validate(number) {}
+
+  includedIn(numbers) {
+    return numbers.includes(this.#number);
+  }
 }
 
 export default Bonus;

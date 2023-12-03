@@ -23,6 +23,10 @@ class Lotto {
 
     return sameNumbers.length;
   }
+
+  includes(bonus) {
+    return bonus.includedIn(this.#numbers);
+  }
 }
 
 export default Lotto;

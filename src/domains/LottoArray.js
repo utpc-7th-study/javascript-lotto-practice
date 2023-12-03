@@ -15,7 +15,8 @@ class LottoArray {
 
   compare(winningLotto) {
     this.#lottoArray.forEach((lotto) => {
-      winningLotto.countSameNumber(lotto);
+      const sameNumbers = winningLotto.checkSameNumber(lotto);
+      const bonus = winningLotto.checkBonus(lotto);
     });
   }
 }
