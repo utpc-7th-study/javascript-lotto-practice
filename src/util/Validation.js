@@ -11,6 +11,7 @@ export const validateWinnerNumbers = (winnerNumbers) => {
 
 export const validateBonusNumber = (bonusNumber) => {
   validateNumberType(bonusNumber);
+  validateNumberRange(bonusNumber);
 };
 
 const validateMinimumLengthLimit = (splitedNumbers) => {
