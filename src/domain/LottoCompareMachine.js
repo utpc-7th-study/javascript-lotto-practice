@@ -11,6 +11,16 @@ class LottoCompareMachine {
     return this.#matchedNumbers(lottos);
   }
 
+  calculateProfit(lottoPrice, lottos) {
+    const prize = [5000, 50000, 1500000, 30000000, 2000000000];
+    const matchedNumbers = this.#matchedNumbers(lottos);
+    const sum = matchedNumbers.reduce((a, c, i) => {
+      return (a += c * prize[i]);
+    }, 0);
+
+    return (sum / lottoPrice) * 100;
+  }
+
   #matchedNumbers(lottos) {
     const matchedLottos = this.#getMatchedLottos(lottos);
     const result = Array.from({ length: 5 }).fill(0);

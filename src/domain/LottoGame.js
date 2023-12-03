@@ -25,6 +25,11 @@ class LottoGame {
 
     return result;
   }
+
+  calculateProfit() {
+    const profit = this.#user.checkProfit(this.#lottoCompareMachine);
+    return profit;
+  }
 }
 
 export default LottoGame;

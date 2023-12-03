@@ -18,6 +18,9 @@ class App {
 
     const lottoResult = this.#lottoGame.compareNumber(winnerNumbers, bonusNumber);
     OutputView.printResult(lottoResult);
+
+    const profit = this.#lottoGame.calculateProfit();
+    OutputView.printPrift(profit);
   }
 
   async #purchaseLottoProcess() {

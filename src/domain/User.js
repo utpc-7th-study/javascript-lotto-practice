@@ -24,6 +24,11 @@ class User {
     const result = lottoCompareMachine.calculateResult(this.#lottos);
     return result;
   }
+
+  checkProfit(lottoCompareMachine) {
+    const result = lottoCompareMachine.calculateProfit(this.#lottoPrice, this.#lottos);
+    return result;
+  }
 }
 
 export default User;
