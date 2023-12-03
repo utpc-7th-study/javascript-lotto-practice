@@ -6,6 +6,7 @@ class App {
 
     await lottoContoller.askBuyAmount();
     await lottoContoller.askLottoNumbers();
+    await lottoContoller.askBonusNumber();
   }
 }
 
