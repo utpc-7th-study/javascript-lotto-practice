@@ -1,4 +1,5 @@
 import Lotto from '../src/domains/Lotto.js';
+import Bonus from '../src/domains/Bonus.js';
 
 describe('로또 클래스 테스트', () => {
   test('로또 번호의 개수가 6개가 넘어가면 예외가 발생한다.', () => {
@@ -28,8 +29,8 @@ describe('로또 클래스 테스트', () => {
 
   test('로또가 가지는 번호인지 확인한다.', () => {
     // given
-    const number = 40;
     const lotto = new Lotto([7, 12, 33, 34, 40, 42]);
+    const number = new Bonus(40);
 
     // when
     const result = lotto.includes(number);
