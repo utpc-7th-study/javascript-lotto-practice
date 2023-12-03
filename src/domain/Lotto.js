@@ -8,11 +8,20 @@ class Lotto {
 
   #validate(numbers) {
     this.#validateLimitLottoLength(numbers);
+    this.#validateLottoRange(numbers);
   }
 
   #validateLimitLottoLength(numbers) {
     if (numbers.length !== 6) {
       throw new Error('[ERROR] 로또 번호는 6개여야 합니다.');
+    }
+  }
+
+  #validateLottoRange(numbers) {
+    const isValidLottoRange = numbers.every((number) => number >= 1 && number <= 45);
+
+    if (!isValidLottoRange) {
+      throw new Error('[ERROR] 로또 번호는 1부터 45까지의 범위만 가능합니다.');
     }
   }
 
