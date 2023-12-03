@@ -19,8 +19,8 @@ const OutputView = {
 
   correctTemp(matchNumber, prize, matchCount, bonus) {
     const message = [`${matchNumber}개 일치`];
-    if (bonus) message.push(', 보너스 볼 일치 ');
-    message.push(`(${addCommaToNumber(prize)}원) - ${matchCount}개`);
+    if (bonus) message.push(', 보너스 볼 일치');
+    message.push(` (${addCommaToNumber(prize)}원) - ${matchCount}개`);
 
     return message.join('');
   },

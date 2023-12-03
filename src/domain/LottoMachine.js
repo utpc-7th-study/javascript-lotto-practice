@@ -51,7 +51,6 @@ class LottoMachine {
     const { first, second, third, fourth, fifty } = LOTTO_WINNING_INFO;
     this.#lottos.forEach((lottoNumbers) => {
       const matchCount = lotto.matchCount(lottoNumbers);
-      console.log(matchCount);
       if (matchCount === first.correct) this.#result.first += 1;
       if (matchCount === second.correct && lottoBonus.match(lottoNumbers)) this.#result.second += 1;
       if (matchCount === third.correct && !lottoBonus.match(lottoNumbers)) this.#result.third += 1;
@@ -68,7 +67,7 @@ class LottoMachine {
       0,
     );
 
-    this.#roi = winningAmount / this.#buyAmount;
+    this.#roi = (winningAmount / this.#buyAmount) * 100;
   }
 
   #validateBuyAmount(buyAmount) {
