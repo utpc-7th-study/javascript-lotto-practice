@@ -12,9 +12,12 @@ class App {
 
   async play() {
     await this.#purchaseLottoProcess();
+
     const winnerNumbers = await this.#winnerNumbersProcess();
     const bonusNumber = await this.#bonusNumberProcess();
-    console.log(winnerNumbers, bonusNumber);
+
+    const lottoResult = this.#lottoGame.compareNumber(winnerNumbers, bonusNumber);
+    OutputView.printResult(lottoResult);
   }
 
   async #purchaseLottoProcess() {

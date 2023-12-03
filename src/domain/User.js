@@ -19,6 +19,11 @@ class User {
   checkLottoNumbers() {
     return deepFreeze(this.#lottos);
   }
+
+  checkLottoResult(lottoCompareMachine) {
+    const result = lottoCompareMachine.calculateResult(this.#lottos);
+    return result;
+  }
 }
 
 export default User;
