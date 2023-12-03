@@ -23,4 +23,13 @@ describe('구입금액 테스트', () => {
       }).toThrow();
     }
   );
+
+  test.each([['500'], ['1250'], ['1250']])(
+    '잘못된 구입금액 테스트 : 1000원 단위로 나누어지지 않는 경우',
+    (input) => {
+      expect(() => {
+        lottoGame.purchaseLotto(input);
+      }).toThrow();
+    }
+  );
 });
