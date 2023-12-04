@@ -1,6 +1,8 @@
 import InputView from '../views/InputView.js';
+import OutputView from '../views/OutputView.js';
 import hasError from '../utils/hasError.js';
 import { validatePurchaseAmount } from '../validator/validator.js';
+import Lotto from '../domains/Lotto.js';
 
 const InputController = {
   async readPurchaseAmount() {
@@ -15,6 +17,13 @@ const InputController = {
 
   async readWinningNumbers() {
     const winningNumbers = await InputView.readWinningNumbers();
+
+    try {
+      new Lotto(winningNumbers);
+    } catch (error) {
+      OutputView.print(error.message);
+      return await this.readWinningNumbers();
+    }
 
     return winningNumbers;
   },

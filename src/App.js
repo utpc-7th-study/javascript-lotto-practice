@@ -13,6 +13,7 @@ class App {
     const winningNumbers = await InputController.readWinningNumbers();
     const bonusNumber = await InputController.readBonusNumber();
     this.lottoGame.checkWinning(winningNumbers, bonusNumber);
+
     this.lottoGame.showResult();
   }
 }
