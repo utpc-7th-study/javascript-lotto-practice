@@ -21,11 +21,11 @@ const OutputView = {
   printWinningResult(results) {
     Console.print('\n당첨 통계\n---');
     results.forEach((result) => {
-      const [winningAmount, requirements, count] = result;
+      const [rankPlace, winningAmount, requirements, count] = result;
       Console.print(
-        `${requirements.sameNumbers}개 일치 (${addComma(
-          winningAmount
-        )}원) - ${count}개`
+        `${requirements.sameNumbers}개 일치${
+          rankPlace === 2 ? ', 보너스 볼 일치' : ''
+        } (${addComma(winningAmount)}원) - ${count}개`
       );
     });
   },

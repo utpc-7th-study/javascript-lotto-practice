@@ -41,7 +41,7 @@ class RankItem {
   }
 
   getInformation() {
-    return [this.#winningsAmount, this.#requirements];
+    return [this.#rankPlace, this.#winningsAmount, this.#requirements];
   }
 }
 

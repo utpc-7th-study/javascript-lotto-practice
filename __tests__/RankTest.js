@@ -47,6 +47,7 @@ describe('Rank 클래스 테스트', () => {
 
     // then
     expect(result).toEqual([
+      2,
       30000000,
       {
         sameNumbers: 5,
