@@ -7,6 +7,7 @@ class App {
 
   async play() {
     this.lottoGame.buyLottos();
+    this.lottoGame.checkWinning();
   }
 }
 
