@@ -27,6 +27,10 @@ class Lotto {
   includes(bonus) {
     return bonus.includedIn(this.#numbers);
   }
+
+  get() {
+    return this.#numbers;
+  }
 }
 
 export default Lotto;

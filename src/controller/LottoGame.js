@@ -22,6 +22,7 @@ class LottoGame {
 
   #showLottos() {
     OutputView.printLottosQuantity(this.#lottos.getTotalQuantity());
+    OutputView.printLottos(this.#lottos.get());
   }
 
   checkWinning(winningNumbers, bonusNumber) {

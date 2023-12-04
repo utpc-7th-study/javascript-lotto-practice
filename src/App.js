@@ -8,11 +8,12 @@ class App {
 
   async play() {
     const money = await InputController.readPurchaseAmount();
+    this.lottoGame.buyLottos(money);
+
     const winningNumbers = await InputController.readWinningNumbers();
     const bonusNumber = await InputController.readBonusNumber();
-
-    this.lottoGame.buyLottos(money);
     this.lottoGame.checkWinning(winningNumbers, bonusNumber);
+    this.lottoGame.showResult();
   }
 }
 
