@@ -38,7 +38,7 @@ class LottoResult {
     return totalWinnings;
   }
 
-  calculateRateOfWinnings(purchaseQuantity) {
+  calculateWinningsRate(purchaseQuantity) {
     const totalWinningAmount = this.#calculateTotalWinnings();
 
     return (totalWinningAmount / (purchaseQuantity * 1000)) * 100;

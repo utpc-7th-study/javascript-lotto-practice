@@ -18,7 +18,7 @@ describe('LottoResult 클래스 테스트', () => {
     lottoResult.create(lottos, winningLotto);
 
     // when
-    const result = lottoResult.calculateRateOfWinnings(lottoArray.length);
+    const result = lottoResult.calculateWinningsRate(lottoArray.length);
 
     // then
     expect(result).toBe(51500125);
