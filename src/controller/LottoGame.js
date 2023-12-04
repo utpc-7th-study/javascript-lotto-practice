@@ -22,6 +22,11 @@ class LottoGame {
     const winningLotto = new WinningLotto([1, 2, 3, 4, 5, 6], 7);
     this.#lottoResult.create(this.#lottos, winningLotto);
   }
+
+  showResult() {
+    this.#lottoResult.calculateTotalWinnings();
+    this.#lottoResult.calculateRateOfWinnings(this.#lottos.getTotalQuantity());
+  }
 }
 
 export default LottoGame;

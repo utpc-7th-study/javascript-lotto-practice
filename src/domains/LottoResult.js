@@ -37,6 +37,12 @@ class LottoResult {
 
     return totalWinnings;
   }
+
+  calculateRateOfWinnings(purchaseQuantity) {
+    const totalWinnings = this.calculateTotalWinnings();
+
+    return (totalWinnings / (purchaseQuantity * 1000)) * 100;
+  }
 }
 
 export default LottoResult;
