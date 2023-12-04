@@ -32,7 +32,9 @@ class LottoGame {
 
   showResult() {
     OutputView.printWinningResult(this.#lottoResult.getWinningResult());
-    this.#lottoResult.calculateRateOfWinnings(this.#lottos.getTotalQuantity());
+    OutputView.printWinningsRate(
+      this.#lottoResult.calculateWinningsRate(this.#lottos.getTotalQuantity())
+    );
   }
 }
 

@@ -19,15 +19,19 @@ const OutputView = {
   },
 
   printWinningResult(results) {
-    Console.print('당첨 통계\n---');
+    Console.print('\n당첨 통계\n---');
     results.forEach((result) => {
       const [winningAmount, requirements, count] = result;
       Console.print(
         `${requirements.sameNumbers}개 일치 (${addComma(
           winningAmount
-        )}원), - ${count}개`
+        )}원) - ${count}개`
       );
     });
+  },
+
+  printWinningsRate(WinningsRate) {
+    Console.print(`총 수익률은 ${WinningsRate}%입니다.`);
   },
 };
 
