@@ -3,6 +3,8 @@ import WinningLotto from '../domains/WinningLotto.js';
 import LottoResult from '../domains/LottoResult.js';
 import RandomNumbersArray from '../domains/RandomNumbersArray.js';
 
+import OutputView from '../views/OutputView.js';
+
 class LottoGame {
   #lottos;
   #lottoResult;
@@ -15,6 +17,11 @@ class LottoGame {
   buyLottos(amount) {
     const numbersArray = RandomNumbersArray.create(amount / 1000);
     this.#lottos.set(numbersArray);
+    this.#showLottos();
+  }
+
+  #showLottos() {
+    OutputView.printLottosQuantity(this.#lottos.getTotalQuantity());
   }
 
   checkWinning(winningNumbers, bonusNumber) {

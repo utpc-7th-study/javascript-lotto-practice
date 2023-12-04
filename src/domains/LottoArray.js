@@ -27,6 +27,10 @@ class LottoArray {
   getTotalQuantity() {
     return this.#lottoArray.length;
   }
+
+  get() {
+    return this.#lottoArray;
+  }
 }
 
 export default LottoArray;
