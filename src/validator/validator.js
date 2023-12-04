@@ -26,3 +26,5 @@ export const validateLottoNumber = (numbers) => {
   Validator.length(numbers);
   Validator.duplication(numbers);
 };
+
+export const validateBonus = (number) => {};

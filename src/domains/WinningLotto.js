@@ -7,7 +7,7 @@ class WinningLotto {
 
   constructor(numbers, bonusNumber) {
     this.#lotto = new Lotto(numbers);
-    this.#bonus = new Bonus(bonusNumber);
+    this.#bonus = new Bonus(bonusNumber, numbers);
   }
 
   checkSameNumber(lotto) {
