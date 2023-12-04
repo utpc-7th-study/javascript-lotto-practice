@@ -36,6 +36,17 @@ class Rank {
 
     return winningRank[0].getPlace();
   }
+
+  getWinningsAmount(rankPlace, count) {
+    let winningsAmount = 0;
+    this.#ranks.forEach((rank) => {
+      if (rank.isSame(rankPlace)) {
+        winningsAmount = rank.getWinningsAmount(count);
+      }
+    });
+
+    return winningsAmount;
+  }
 }
 
 export default Rank;

@@ -25,6 +25,18 @@ class LottoResult {
       this.#result.set(rank, this.#result.get(rank) + 1);
     });
   }
+
+  calculateTotalWinnings() {
+    let totalWinnings = 0;
+    this.#result.forEach((count, rankPlace) => {
+      if (count > 0) {
+        const ranks = new Rank();
+        totalWinnings += ranks.getWinningsAmount(rankPlace, count);
+      }
+    });
+
+    return totalWinnings;
+  }
 }
 
 export default LottoResult;

@@ -31,6 +31,14 @@ class RankItem {
   getPlace() {
     return this.#rankPlace;
   }
+
+  isSame(rankPlace) {
+    return this.#rankPlace === rankPlace;
+  }
+
+  getWinningsAmount(count) {
+    return this.#winningsAmount * count;
+  }
 }
 
 export default RankItem;
