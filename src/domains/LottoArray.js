@@ -13,11 +13,15 @@ class LottoArray {
     });
   }
 
-  compare(winningLotto) {
-    this.#lottoArray.forEach((lotto) => {
+  compareTo(winningLotto) {
+    const results = this.#lottoArray.map((lotto) => {
       const sameNumbers = winningLotto.checkSameNumber(lotto);
       const bonus = winningLotto.checkBonus(lotto);
+
+      return { sameNumbers, bonus };
     });
+
+    return results;
   }
 }
 
