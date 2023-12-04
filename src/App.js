@@ -1,4 +1,5 @@
 import LottoGame from './controller/LottoGame.js';
+import InputController from './controller/InputController.js';
 
 class App {
   constructor() {
@@ -6,6 +7,8 @@ class App {
   }
 
   async play() {
+    const money = await InputController.readPurchaseAmount();
+
     this.lottoGame.buyLottos();
     this.lottoGame.checkWinning();
   }
