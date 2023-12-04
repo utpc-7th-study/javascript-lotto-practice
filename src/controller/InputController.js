@@ -13,10 +13,16 @@ const InputController = {
     return money;
   },
 
-  async readWinningLotto() {
+  async readWinningNumbers() {
     const winningNumbers = await InputView.readWinningNumbers();
 
     return winningNumbers;
+  },
+
+  async readBonusNumber() {
+    const bonus = await InputView.readBonusNumber();
+
+    return bonus;
   },
 };
 

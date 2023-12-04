@@ -12,6 +12,14 @@ const InputView = {
 
     return numbers.split(',').map((number) => Number(number));
   },
+
+  async readBonusNumber() {
+    const number = await Console.readLineAsync(
+      '보너스 번호를 입력해 주세요.\n'
+    );
+
+    return Number(number);
+  },
 };
 
 export default InputView;

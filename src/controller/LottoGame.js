@@ -17,8 +17,8 @@ class LottoGame {
     this.#lottos.set(numbersArray);
   }
 
-  checkWinning(winningNumbers) {
-    const winningLotto = new WinningLotto(winningNumbers, 7);
+  checkWinning(winningNumbers, bonusNumber) {
+    const winningLotto = new WinningLotto(winningNumbers, bonusNumber);
     this.#lottoResult.create(this.#lottos, winningLotto);
   }
 
