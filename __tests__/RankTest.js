@@ -37,4 +37,21 @@ describe('Rank 클래스 테스트', () => {
       expect(result).toBe(winningsAmount);
     }
   );
+
+  test('당첨 등수에 대한 당첨 금액과 조건을 알려준다', () => {
+    // given
+    const rank = new Rank();
+
+    // when
+    const result = rank.getInformation(2);
+
+    // then
+    expect(result).toEqual([
+      30000000,
+      {
+        sameNumbers: 5,
+        bonus: true,
+      },
+    ]);
+  });
 });
