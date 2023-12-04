@@ -17,4 +17,24 @@ describe('Rank 클래스 테스트', () => {
     // then
     expect(result).toEqual([2, 1, 5]);
   });
+
+  test.each([
+    [1, 1, 2000000000],
+    [2, 3, 90000000],
+    [3, 2, 3000000],
+    [4, 7, 350000],
+    [5, 6, 30000],
+  ])(
+    '당첨 등수와 당첨 개수를 통해 총 수익액을 구한다.',
+    (rankPlace, count, winningsAmount) => {
+      // given
+      const rank = new Rank();
+
+      // when
+      const result = rank.getWinningsAmount(rankPlace, count);
+
+      // then
+      expect(result).toBe(winningsAmount);
+    }
+  );
 });
