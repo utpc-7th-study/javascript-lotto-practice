@@ -8,7 +8,8 @@ describe('Bonus 클래스 테스트', () => {
     '보너스 번호가 주어진 숫자 배열에 포함 여부를 알려준다.',
     (numbers, expected) => {
       // given
-      const bonus = new Bonus(27);
+      const lottoNumbers = [1, 2, 3, 4, 5, 6];
+      const bonus = new Bonus(27, lottoNumbers);
 
       // when
       const result = bonus.includedIn(numbers);

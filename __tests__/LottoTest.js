@@ -29,8 +29,9 @@ describe('로또 클래스 테스트', () => {
 
   test('로또가 가지는 번호인지 확인한다.', () => {
     // given
-    const lotto = new Lotto([7, 12, 33, 34, 40, 42]);
-    const number = new Bonus(40);
+    const lottoNumbers = [7, 12, 33, 34, 40, 42];
+    const lotto = new Lotto(lottoNumbers);
+    const number = new Bonus(40, [1, 7, 12, 33, 34, 42]);
 
     // when
     const result = lotto.includes(number);
