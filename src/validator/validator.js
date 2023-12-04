@@ -10,6 +10,12 @@ const Validator = {
       throw new Error('[ERROR] 로또 번호는 6개여야 합니다.');
     }
   },
+
+  duplication(numbers) {
+    if (new Set(numbers).size !== numbers.length) {
+      throw new Error('[ERROR] 로또 번호에 중복된 숫자가 있으면 안됩니다.');
+    }
+  },
 };
 
 export const validatePurchaseAmount = (amount) => {
@@ -18,4 +24,5 @@ export const validatePurchaseAmount = (amount) => {
 
 export const validateLottoNumber = (numbers) => {
   Validator.length(numbers);
+  Validator.duplication(numbers);
 };
