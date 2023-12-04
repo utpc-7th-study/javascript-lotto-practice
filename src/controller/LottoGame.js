@@ -31,7 +31,7 @@ class LottoGame {
   }
 
   showResult() {
-    this.#lottoResult.calculateTotalWinnings();
+    OutputView.printWinningResult(this.#lottoResult.getWinningResult());
     this.#lottoResult.calculateRateOfWinnings(this.#lottos.getTotalQuantity());
   }
 }

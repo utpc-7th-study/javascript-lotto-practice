@@ -26,7 +26,7 @@ class LottoResult {
     });
   }
 
-  calculateTotalWinnings() {
+  #calculateTotalWinnings() {
     let totalWinnings = 0;
     this.#result.forEach((count, rankPlace) => {
       if (count > 0) {
@@ -39,9 +39,19 @@ class LottoResult {
   }
 
   calculateRateOfWinnings(purchaseQuantity) {
-    const totalWinnings = this.calculateTotalWinnings();
+    const totalWinningAmount = this.#calculateTotalWinnings();
 
-    return (totalWinnings / (purchaseQuantity * 1000)) * 100;
+    return (totalWinningAmount / (purchaseQuantity * 1000)) * 100;
+  }
+
+  getWinningResult() {
+    let results = [];
+    this.#result.forEach((count, rankPlace) => {
+      const ranks = new Rank();
+      results.push([...ranks.getInformation(rankPlace), count]);
+    });
+
+    return results;
   }
 }
 

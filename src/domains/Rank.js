@@ -47,6 +47,12 @@ class Rank {
 
     return winningsAmount;
   }
+
+  getInformation(rankPlace) {
+    const rank = this.#ranks.filter((rank) => rank.isSame(rankPlace))[0];
+
+    return rank.getInformation();
+  }
 }
 
 export default Rank;

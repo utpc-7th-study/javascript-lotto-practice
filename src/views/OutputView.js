@@ -16,6 +16,16 @@ const OutputView = {
 
     Console.print('');
   },
+
+  printWinningResult(results) {
+    Console.print('당첨 통계\n---');
+    results.forEach((result) => {
+      const [winningAmount, requirements, count] = result;
+      Console.print(
+        `${requirements.sameNumbers}개 일치 (${winningAmount}원), - ${count}개`
+      );
+    });
+  },
 };
 
 export default OutputView;
