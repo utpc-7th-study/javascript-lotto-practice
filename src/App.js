@@ -6,6 +6,5 @@ class App {
     await controller.startLotto();
   }
 }
-const aa = new App();
-aa.play();
+
 export default App;

@@ -9,7 +9,7 @@ class LottoResult {
 
   #calcRevenue(matchObj, matcheAmountObj) {
     let revenue = 0;
-
+    console.log(matchObj);
     Object.entries(matchObj).forEach(([key, value]) => {
       if (value) {
         revenue += matcheAmountObj[key] * value;
@@ -28,7 +28,9 @@ class LottoResult {
       six: 2000000000,
     };
     const revenue = this.#calcRevenue(this.#matchObj, matcheAmountObj);
-    const rateOfReturn = (revenue / (this.#amount / 100)).toFixed(1);
+    const rateOfReturn = parseFloat(
+      (revenue / (this.#amount / 100)).toFixed(1)
+    );
 
     return rateOfReturn;
   }

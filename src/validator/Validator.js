@@ -1,34 +1,44 @@
 export const Validator = {
   validateAmount(amount) {
-    const checkStyle = /\D/;
-    if (checkStyle.test(amount)) throw new Error('[ERROR]');
+    validateNumberType(amount);
     if (amount % 1000 !== 0) throw new Error('[ERROR]');
-    if (typeof amount !== 'number') throw new Error('[ERROR]');
   },
 
   validatewinningNumber(winningNumber) {
-    const isDuplicated = new Set(winningNumber).size !== winningNumber.length;
-    const checkStyle = /\D/;
-
-    if (isDuplicated) throw new Error('[ERROR]');
-    if (winningNumber.length !== 6) throw new Error('[ERROR]');
+    validateDuplicate(winningNumber);
+    validateLottoLength(winningNumber, 6);
     winningNumber.map((number) => {
-      if (number < 1 || number > 45) {
-        throw new Error('[ERROR] 당첨 번호는 1~45의 사잇 값이여야 합니다.');
-      }
-      if (checkStyle.test(number)) throw new Error('[ERROR]');
+      validateNumberRange(number);
+      validateNumberType(number);
     });
   },
 
   validateBonusNumber(winningNumber, bonusNumber) {
     const bonusNumList = String(bonusNumber).split(',');
-    const checkStyle = /\D/;
-
-    if (bonusNumber < 1 || bonusNumber > 45) throw new Error('[ERROR]');
-    if (bonusNumList.length !== 1) throw new Error('[ERROR]');
-    if (checkStyle.test(bonusNumber)) throw new Error('[ERROR]');
+    validateNumberType(bonusNumber);
+    validateNumberRange(bonusNumber);
+    validateLottoLength(bonusNumList, 1);
     winningNumber.map((number) => {
       if (number === bonusNumber) throw new Error('[ERROR]');
     });
   },
+};
+
+const validateNumberType = (number) => {
+  const checkStyle = /\D/;
+
+  if (checkStyle.test(number)) throw new Error('[ERROR] 숫자만 입력해 주세요.');
+};
+const validateLottoLength = (numberList, length) => {
+  if (numberList.length !== length) throw new Error('[ERROR]');
+};
+const validateNumberRange = (number) => {
+  if (number < 1 || number > 45) {
+    throw new Error('[ERROR] 로또 번호는 1~45의 사잇 값이여야 합니다.');
+  }
+};
+const validateDuplicate = (numberList) => {
+  const isDuplicated = new Set(numberList).size !== numberList.length;
+
+  if (isDuplicated) throw new Error('[ERROR]');
 };
