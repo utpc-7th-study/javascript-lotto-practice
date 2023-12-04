@@ -31,7 +31,9 @@ const OutputView = {
   },
 
   printWinningsRate(WinningsRate) {
-    Console.print(`총 수익률은 ${WinningsRate}%입니다.`);
+    Console.print(
+      `총 수익률은 ${addComma(Number(WinningsRate.toFixed(2)))}%입니다.`
+    );
   },
 };
 
