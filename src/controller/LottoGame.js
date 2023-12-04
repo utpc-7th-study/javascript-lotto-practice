@@ -12,14 +12,13 @@ class LottoGame {
     this.#lottoResult = new LottoResult();
   }
 
-  buyLottos() {
-    const amount = 8000;
+  buyLottos(amount) {
     const numbersArray = RandomNumbersArray.create(amount / 1000);
     this.#lottos.set(numbersArray);
   }
 
-  checkWinning() {
-    const winningLotto = new WinningLotto([1, 2, 3, 4, 5, 6], 7);
+  checkWinning(winningNumbers) {
+    const winningLotto = new WinningLotto(winningNumbers, 7);
     this.#lottoResult.create(this.#lottos, winningLotto);
   }
 
