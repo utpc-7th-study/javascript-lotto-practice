@@ -1,4 +1,5 @@
 import { Console } from '@woowacourse/mission-utils';
+import addComma from '../utils/addComma.js';
 
 const OutputView = {
   print(message) {
@@ -22,7 +23,9 @@ const OutputView = {
     results.forEach((result) => {
       const [winningAmount, requirements, count] = result;
       Console.print(
-        `${requirements.sameNumbers}개 일치 (${winningAmount}원), - ${count}개`
+        `${requirements.sameNumbers}개 일치 (${addComma(
+          winningAmount
+        )}원), - ${count}개`
       );
     });
   },
