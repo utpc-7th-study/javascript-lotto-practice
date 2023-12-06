@@ -91,7 +91,10 @@ describe('로또 테스트', () => {
     });
   });
 
-  test('예외 테스트', async () => {
-    await runException('1000j');
-  });
+  test.each([['1000j'], ['900'], ['1001']])(
+    '구매 금액 예외 테스트',
+    async (input) => {
+      await runException(input);
+    }
+  );
 });
