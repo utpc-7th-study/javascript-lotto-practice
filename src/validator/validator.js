@@ -5,6 +5,12 @@ const Validator = {
     }
   },
 
+  overThanMinimum(amount) {
+    if (amount < 1000) {
+      throw new Error('[ERROR] 최소 구매 금액은 1,000원입니다.');
+    }
+  },
+
   length(numbers) {
     if (numbers.length !== 6) {
       throw new Error('[ERROR] 로또 번호는 6개여야 합니다.');
@@ -19,6 +25,7 @@ const Validator = {
 };
 
 export const validatePurchaseAmount = (amount) => {
+  Validator.overThanMinimum(amount);
   Validator.unit(amount);
 };
 
