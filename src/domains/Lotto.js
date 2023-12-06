@@ -13,9 +13,7 @@ class Lotto {
   }
 
   #sort(numbers) {
-    return numbers.sort(function (a, b) {
-      return a - b;
-    });
+    return numbers.sort((a, b) => a - b);
   }
 
   countSameNumber(lotto) {
