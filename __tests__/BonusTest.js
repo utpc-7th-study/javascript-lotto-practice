@@ -18,4 +18,14 @@ describe('Bonus 클래스 테스트', () => {
       expect(result).toBe(expected);
     }
   );
+
+  test.each([[1], [2], [3], [4], [5], [6], [46], [0], ['abc']])(
+    '보너스 번호에 대한 예외처리',
+    (number) => {
+      expect(() => {
+        const lottoNumbers = [1, 2, 3, 4, 5, 6];
+        new Bonus(number, lottoNumbers);
+      }).toThrow('[ERROR]');
+    }
+  );
 });
