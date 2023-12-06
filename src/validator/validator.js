@@ -1,4 +1,10 @@
 const Validator = {
+  numberType(amount) {
+    if (isNaN(amount)) {
+      throw new Error('[ERROR] 숫자로 입력해주세요.');
+    }
+  },
+
   unit(amount) {
     if (amount % 1000 !== 0) {
       throw new Error('[ERROR] 구매 금액은 1,000원 단위로 입력하세요.');
@@ -25,6 +31,7 @@ const Validator = {
 };
 
 export const validatePurchaseAmount = (amount) => {
+  Validator.numberType(amount);
   Validator.overThanMinimum(amount);
   Validator.unit(amount);
 };
