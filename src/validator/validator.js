@@ -34,6 +34,12 @@ const Validator = {
       throw new Error('[ERROR] 로또 번호는 1부터 45 사이의 숫자여야 합니다.');
     }
   },
+
+  numberTypeIn(numbers) {
+    if (numbers.some((number) => isNaN(number))) {
+      throw new Error('[ERROR] 로또 번호는 숫자여야 합니다.');
+    }
+  },
 };
 
 export const validatePurchaseAmount = (amount) => {
@@ -43,6 +49,7 @@ export const validatePurchaseAmount = (amount) => {
 };
 
 export const validateLottoNumber = (numbers) => {
+  Validator.numberTypeIn(numbers);
   Validator.length(numbers);
   Validator.duplication(numbers);
   Validator.range(numbers);
