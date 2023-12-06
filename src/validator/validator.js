@@ -1,6 +1,6 @@
 const Validator = {
-  numberType(amount) {
-    if (isNaN(amount)) {
+  numberType(input) {
+    if (isNaN(input)) {
       throw new Error('[ERROR] 숫자로 입력해주세요.');
     }
   },
@@ -55,4 +55,6 @@ export const validateLottoNumber = (numbers) => {
   Validator.range(numbers);
 };
 
-export const validateBonus = (number) => {};
+export const validateBonus = (number) => {
+  Validator.numberType(number);
+};
