@@ -29,9 +29,15 @@ const Validator = {
     }
   },
 
-  range(numbers) {
+  rangeIn(numbers) {
     if (numbers.some((number) => number < 1 || number > 45)) {
       throw new Error('[ERROR] 로또 번호는 1부터 45 사이의 숫자여야 합니다.');
+    }
+  },
+
+  range(number) {
+    if (number < 1 || number > 45) {
+      throw new Error('[ERROR] 보너스 번호는 1부터 45 사이의 숫자여야 합니다.');
     }
   },
 
@@ -52,9 +58,10 @@ export const validateLottoNumber = (numbers) => {
   Validator.numberTypeIn(numbers);
   Validator.length(numbers);
   Validator.duplication(numbers);
-  Validator.range(numbers);
+  Validator.rangeIn(numbers);
 };
 
 export const validateBonus = (number) => {
   Validator.numberType(number);
+  Validator.range(number);
 };
